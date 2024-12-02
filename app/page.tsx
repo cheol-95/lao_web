@@ -26,38 +26,38 @@ export default function Component() {
             </Link>
             
             <div className="hidden md:flex items-center space-x-8">
-              <Link href="#" className="text-white hover:text-[#95a5a6]">조직소개</Link>
-              <Link href="#" className="text-white hover:text-[#95a5a6]">비전</Link>
-              <Link href="#" className="text-white hover:text-[#95a5a6]">사업계획</Link>
-              <Link href="#" className="text-white hover:text-[#95a5a6]">조직체계</Link>
+              <Link href="#" className="text-white hover:text-[#3498db]">조직소개</Link>
+              <Link href="#" className="text-white hover:text-[#3498db]">비전</Link>
+              <Link href="#" className="text-white hover:text-[#3498db]">사업계획</Link>
+              <Link href="#" className="text-white hover:text-[#3498db]">조직체계</Link>
               {/* <Link href="#" className="text-amber-900 hover:text-amber-700">순복음VOD</Link>
               <Link href="#" className="text-amber-900 hover:text-amber-700">교회학교</Link>
               <Link href="#" className="text-amber-900 hover:text-amber-700">상담/문의</Link> */}
             </div>
 
             <div className="flex items-center space-x-4">
-              <button aria-label="알림" className="p-2 hover:bg-gray-100 rounded-full">
-                <Bell className="h-5 w-5 text-amber-700" />
+              <button aria-label="알림" className="p-2 hover:bg-[#34495e] rounded-full">
+                <Bell className="h-5 w-5 text-white" />
               </button>
-              <button aria-label="사용자 메뉴" className="p-2 hover:bg-gray-100 rounded-full">
-                <User className="h-5 w-5 text-amber-700" />
+              <button aria-label="사용자 메뉴" className="p-2 hover:bg-[#34495e] rounded-full">
+                <User className="h-5 w-5 text-white" />
               </button>
               <button 
-                className="md:hidden p-2 hover:bg-gray-100 rounded-full"
+                className="md:hidden p-2 hover:bg-[#34495e] rounded-full"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               >
-                <Menu className="h-6 w-6 text-amber-700" />
+                <Menu className="h-6 w-6 text-white" />
               </button>
             </div>
           </div>
 
           {/* Mobile menu */}
           {mobileMenuOpen && (
-            <div className="md:hidden mt-4 space-y-2 bg-amber-50 p-4 rounded-b-lg">
-              <Link href="#" className="block py-2 text-amber-900 hover:text-amber-700">조직소개</Link>
-              <Link href="#" className="block py-2 text-amber-900 hover:text-amber-700">비전</Link>
-              <Link href="#" className="block py-2 text-amber-900 hover:text-amber-700">사업계획</Link>
-              <Link href="#" className="block py-2 text-amber-900 hover:text-amber-700">조직체계</Link>
+            <div className="md:hidden mt-4 space-y-2 bg-[#2C3E50] p-4 rounded-b-lg">
+              <Link href="#" className="block py-2 text-white hover:bg-[#34495e] rounded px-3">조직소개</Link>
+              <Link href="#" className="block py-2 text-white hover:bg-[#34495e] rounded px-3">비전</Link>
+              <Link href="#" className="block py-2 text-white hover:bg-[#34495e] rounded px-3">사업계획</Link>
+              <Link href="#" className="block py-2 text-white hover:bg-[#34495e] rounded px-3">조직체계</Link>
               {/* <Link href="#" className="block py-2 text-amber-900 hover:text-amber-700">순복음VOD</Link>
               <Link href="#" className="block py-2 text-amber-900 hover:text-amber-700">교회학교</Link>
               <Link href="#" className="block py-2 text-amber-900 hover:text-amber-700">상담/문의</Link> */}
