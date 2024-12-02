@@ -26,10 +26,10 @@ export default function Component() {
             </Link>
             
             <div className="hidden md:flex items-center space-x-8">
-              <Link href="#" className="text-white hover:text-[#3498db]">조직소개</Link>
-              <Link href="#" className="text-white hover:text-[#3498db]">비전</Link>
-              <Link href="#" className="text-white hover:text-[#3498db]">사업계획</Link>
-              <Link href="#" className="text-white hover:text-[#3498db]">조직체계</Link>
+              <Link href="#about" className="text-white hover:text-[#3498db]">조직소개</Link>
+              <Link href="#vision" className="text-white hover:text-[#3498db]">비전</Link>
+              <Link href="#business" className="text-white hover:text-[#3498db]">사업계획</Link>
+              <Link href="#organization" className="text-white hover:text-[#3498db]">조직체계</Link>
               {/* <Link href="#" className="text-amber-900 hover:text-amber-700">순복음VOD</Link>
               <Link href="#" className="text-amber-900 hover:text-amber-700">교회학교</Link>
               <Link href="#" className="text-amber-900 hover:text-amber-700">상담/문의</Link> */}
@@ -54,10 +54,10 @@ export default function Component() {
           {/* Mobile menu */}
           {mobileMenuOpen && (
             <div className="md:hidden mt-4 space-y-2 bg-[#2C3E50] p-4 rounded-b-lg">
-              <Link href="#" className="block py-2 text-white hover:bg-[#34495e] rounded px-3">조직소개</Link>
-              <Link href="#" className="block py-2 text-white hover:bg-[#34495e] rounded px-3">비전</Link>
-              <Link href="#" className="block py-2 text-white hover:bg-[#34495e] rounded px-3">사업계획</Link>
-              <Link href="#" className="block py-2 text-white hover:bg-[#34495e] rounded px-3">조직체계</Link>
+              <Link href="#about" className="block py-2 text-white hover:bg-[#34495e] rounded px-3" onClick={() => setMobileMenuOpen(false)}>조직소개</Link>
+              <Link href="#vision" className="block py-2 text-white hover:bg-[#34495e] rounded px-3" onClick={() => setMobileMenuOpen(false)}>비전</Link>
+              <Link href="#business" className="block py-2 text-white hover:bg-[#34495e] rounded px-3" onClick={() => setMobileMenuOpen(false)}>사업계획</Link>
+              <Link href="#organization" className="block py-2 text-white hover:bg-[#34495e] rounded px-3" onClick={() => setMobileMenuOpen(false)}>조직체계</Link>
               {/* <Link href="#" className="block py-2 text-amber-900 hover:text-amber-700">순복음VOD</Link>
               <Link href="#" className="block py-2 text-amber-900 hover:text-amber-700">교회학교</Link>
               <Link href="#" className="block py-2 text-amber-900 hover:text-amber-700">상담/문의</Link> */}
@@ -104,7 +104,7 @@ export default function Component() {
 
           <div className="relative h-[300px] md:h-[600px] rounded-lg overflow-hidden mt-8 md:mt-0">
             <Image
-              src="/라오스국기_단체사진.jpeg"
+              src="/laos_group.jpeg"
               alt="라오브라더스 메인"
               fill
               className="object-cover"
@@ -115,7 +115,7 @@ export default function Component() {
       </main>
 
       {/* Vision Sections */}
-      <section className="py-12 md:py-20 bg-white">
+      <section id="vision" className="py-12 md:py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="space-y-20">
             {/* Vision */}
@@ -128,7 +128,7 @@ export default function Component() {
             <AnimatedSection
               title="이웃과 함께"
               description="불우한 이웃과 함께하며 사랑을 실천합니다."
-              imageSrc="/야구장_단체.jpeg"
+              imageSrc="/baseball_field_group.jpeg"
               imageAlt="이웃과 함께하는 모습"
               imageOnLeft={true}
             />
@@ -136,7 +136,7 @@ export default function Component() {
             <AnimatedSection
               title="주님의 은혜를"
               description="오중복음 삼중축복의 은혜가 넘칩니다."
-              imageSrc="/타자.jpeg"
+              imageSrc="/Hitter.jpeg"
               imageAlt="성경을 읽는 모습"
               imageOnLeft={false}
             />
@@ -144,7 +144,7 @@ export default function Component() {
             <AnimatedSection
               title="세계선교를 향한"
               description="하나님의 일꾼으로서 복음을 전파합니다."
-              imageSrc="/투수.jpeg"
+              imageSrc="/Pitcher.jpeg"
               imageAlt="선교 활동 모습"
               imageOnLeft={true}
             />
@@ -152,7 +152,7 @@ export default function Component() {
             <AnimatedSection
               title="청년 인재 양성"
               description="글로벌 매너와 역량을 갖춘 청년 인재를 양성합니다."
-              imageSrc="/승리.jpeg"
+              imageSrc="/Victory.jpeg"
               imageAlt="청년 교육 프로그램"
               imageOnLeft={false}
             />
@@ -161,7 +161,7 @@ export default function Component() {
       </section>
 
       {/* 2025 Business Plan Section */}
-      <section className="py-12 md:py-20 bg-gray-50">
+      <section id="business" className="py-12 md:py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-16">2025년 사업계획</h2>
           <div className="space-y-8">
@@ -198,7 +198,7 @@ export default function Component() {
       </section>
       
       {/* Organization Structure Section */}
-      <section className="py-12 md:py-20">
+      <section id="organization" className="py-12 md:py-20">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-16">조직체계</h2>
           <div className="space-y-8">
@@ -234,10 +234,81 @@ export default function Component() {
           </div>
         </div>
       </section>
+
+      {/* Footer */}
+      <footer className="bg-[#2C3E50] text-white mt-20">
+        <div className="container mx-auto px-4 py-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Organization Info */}
+            <div className="space-y-4">
+              <Image
+                src="/logo_main.png"
+                alt="라오브라더스 로고"
+                width={150}
+                height={40}
+                className="h-10 w-auto"
+              />
+              <div className="space-y-2 text-sm">
+                <p>주소: 서울특별시 강남구 테헤란로</p>
+                <p>전화: 02-1234-5678</p>
+                <p>이메일: info@laobrothers.org</p>
+              </div>
+            </div>
+
+            {/* Quick Links */}
+            <div className="space-y-4">
+              <h3 className="text-lg font-semibold">바로가기</h3>
+              <ul className="space-y-2 text-sm">
+                <li><Link href="#about" className="hover:text-[#3498db]">조직소개</Link></li>
+                <li><Link href="#vision" className="hover:text-[#3498db]">비전</Link></li>
+                <li><Link href="#business" className="hover:text-[#3498db]">사업계획</Link></li>
+                <li><Link href="#organization" className="hover:text-[#3498db]">조직체계</Link></li>
+              </ul>
+            </div>
+
+            {/* Social Links */}
+            <div className="space-y-4">
+              <h3 className="text-lg font-semibold">소셜 미디어</h3>
+              <div className="flex space-x-4">
+                <a href="#" className="hover:text-[#3498db]" aria-label="Facebook">
+                  <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"></path>
+                  </svg>
+                </a>
+                <a href="#" className="hover:text-[#3498db]" aria-label="Instagram">
+                  <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2c2.717 0 3.056.01 4.122.06 1.065.05 1.79.217 2.428.465.66.254 1.216.598 1.772 1.153a4.908 4.908 0 011.153 1.772c.247.637.415 1.363.465 2.428.047 1.066.06 1.405.06 4.122 0 2.717-.01 3.056-.06 4.122-.05 1.065-.218 1.79-.465 2.428a4.883 4.883 0 01-1.153 1.772 4.915 4.915 0 01-1.772 1.153c-.637.247-1.363.415-2.428.465-1.066.047-1.405.06-4.122.06-2.717 0-3.056-.01-4.122-.06-1.065-.05-1.79-.218-2.428-.465a4.89 4.89 0 01-1.772-1.153 4.904 4.904 0 01-1.153-1.772c-.248-.637-.415-1.363-.465-2.428C2.013 15.056 2 14.717 2 12c0-2.717.01-3.056.06-4.122.05-1.066.217-1.79.465-2.428a4.88 4.88 0 011.153-1.772A4.897 4.897 0 015.45 2.525c.638-.248 1.362-.415 2.428-.465C8.944 2.013 9.283 2 12 2z"></path>
+                  </svg>
+                </a>
+                <a href="#" className="hover:text-[#3498db]" aria-label="YouTube">
+                  <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Copyright */}
+          <div className="border-t border-gray-600 mt-8 pt-8 text-center text-sm">
+            <p>&copy; {new Date().getFullYear()} 라오브라더스. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
     </div>
   )
 }
-function AnimatedSection({ title, description, imageSrc, imageAlt, imageOnLeft }) {
+
+interface AnimatedSectionProps {
+  title: string;
+  description: string;
+  imageSrc: string;
+  imageAlt: string;
+  imageOnLeft: boolean;
+}
+
+
+function AnimatedSection({ title, description, imageSrc, imageAlt, imageOnLeft }: AnimatedSectionProps) {
   const [isVisible, setIsVisible] = useState(false)
   const sectionRef = useRef(null)
 
