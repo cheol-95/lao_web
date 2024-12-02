@@ -12,7 +12,7 @@ export default function Component() {
     <div className="min-h-screen bg-white text-black">
 
       {/* Navigation */}
-      <header className="sticky top-0 z-50 bg-orange-50	 border-b">
+      <header className="sticky top-0 z-50 bg-[#2C3E50] border-b">
         <nav className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <Link href="/" className="flex items-center">
@@ -26,10 +26,10 @@ export default function Component() {
             </Link>
             
             <div className="hidden md:flex items-center space-x-8">
-              <Link href="#" className="text-amber-900 hover:text-amber-700">조직소개</Link>
-              <Link href="#" className="text-amber-900 hover:text-amber-700">비전</Link>
-              <Link href="#" className="text-amber-900 hover:text-amber-700">사업계획</Link>
-              <Link href="#" className="text-amber-900 hover:text-amber-700">조직체계</Link>
+              <Link href="#" className="text-white hover:text-[#95a5a6]">조직소개</Link>
+              <Link href="#" className="text-white hover:text-[#95a5a6]">비전</Link>
+              <Link href="#" className="text-white hover:text-[#95a5a6]">사업계획</Link>
+              <Link href="#" className="text-white hover:text-[#95a5a6]">조직체계</Link>
               {/* <Link href="#" className="text-amber-900 hover:text-amber-700">순복음VOD</Link>
               <Link href="#" className="text-amber-900 hover:text-amber-700">교회학교</Link>
               <Link href="#" className="text-amber-900 hover:text-amber-700">상담/문의</Link> */}
