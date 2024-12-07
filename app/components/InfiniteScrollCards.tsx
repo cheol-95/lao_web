@@ -27,7 +27,7 @@ export default function InfiniteScrollCards() {
       if (container.scrollLeft >= container.scrollWidth - container.offsetWidth) {
         container.scrollLeft = container.scrollWidth / 3; // 원본 카드로 이동
       }
-    }, 15); // 15ms 간격으로 이동
+    }, 30); // 30ms 간격으로 이동
   };
 
   const stopAutoScroll = () => {
@@ -113,7 +113,7 @@ function CardContainer({
       className="relative flex-shrink-0 w-80 h-60 bg-transparent" // 새로운 영역 (카드와 동일한 가로 너비, 더 긴 세로)
     >
       <div
-        className={`absolute w-full p-4 md:p-6 rounded-lg shadow-sm bg-[#00AC8F] text-white ${
+        className={`absolute w-full p-4 md:p-6 rounded-lg shadow-sm bg-[#00AC8F] text-white hover:bg-[#2bbaa2] transition-colors duration-200 ${
           index % 2 === 0 ? "top-0" : "bottom-0"
         }`}
         style={{
