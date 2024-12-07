@@ -30,6 +30,8 @@ export default function Component() {
               <Link href="#vision" className="text-white hover:text-[#3498db]">비전</Link>
               <Link href="#business" className="text-white hover:text-[#3498db]">사업계획</Link>
               <Link href="#organization" className="text-white hover:text-[#3498db]">조직체계</Link>
+              <Link href="/donation/annual-records" className="text-white hover:text-[#3498db]">연간 기부금 모금액 내역</Link>
+              <Link href="/donation/usage-history" className="text-white hover:text-[#3498db]">활용 실적 내역</Link>
               {/* <Link href="#" className="text-amber-900 hover:text-amber-700">순복음VOD</Link>
               <Link href="#" className="text-amber-900 hover:text-amber-700">교회학교</Link>
               <Link href="#" className="text-amber-900 hover:text-amber-700">상담/문의</Link> */}
@@ -58,6 +60,8 @@ export default function Component() {
               <Link href="#vision" className="block py-2 text-white hover:bg-[#34495e] rounded px-3" onClick={() => setMobileMenuOpen(false)}>비전</Link>
               <Link href="#business" className="block py-2 text-white hover:bg-[#34495e] rounded px-3" onClick={() => setMobileMenuOpen(false)}>사업계획</Link>
               <Link href="#organization" className="block py-2 text-white hover:bg-[#34495e] rounded px-3" onClick={() => setMobileMenuOpen(false)}>조직체계</Link>
+              <Link href="/donation/annual-records" className="block py-2 text-white hover:bg-[#34495e] rounded px-3" onClick={() => setMobileMenuOpen(false)}>연간 기부금 모금액 내역</Link>
+              <Link href="/donation/usage-history" className="block py-2 text-white hover:bg-[#34495e] rounded px-3" onClick={() => setMobileMenuOpen(false)}>활용 실적 내역</Link>
               {/* <Link href="#" className="block py-2 text-amber-900 hover:text-amber-700">순복음VOD</Link>
               <Link href="#" className="block py-2 text-amber-900 hover:text-amber-700">교회학교</Link>
               <Link href="#" className="block py-2 text-amber-900 hover:text-amber-700">상담/문의</Link> */}
