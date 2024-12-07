@@ -21,12 +21,12 @@ export default function Navigation() {
           </Link>
 
           <div className="hidden md:flex items-center space-x-8">
-            <Link href="#about" className="text-white hover:text-[#3498db]">조직소개</Link>
-            <Link href="#vision" className="text-white hover:text-[#3498db]">비전</Link>
-            <Link href="#business" className="text-white hover:text-[#3498db]">사업계획</Link>
-            <Link href="#organization" className="text-white hover:text-[#3498db]">조직체계</Link>
-            <Link href="/donation/annual-records" className="text-white hover:text-[#3498db]">연간 기부금 모금액 내역</Link>
-            <Link href="/donation/usage-history" className="text-white hover:text-[#3498db]">활용 실적 내역</Link>
+            <Link href="#about" className="text-white relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-white hover:after:w-full after:transition-all after:duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50 rounded">조직소개</Link>
+            <Link href="#vision" className="text-white relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-white hover:after:w-full after:transition-all after:duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50 rounded">비전</Link>
+            <Link href="#business" className="text-white relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-white hover:after:w-full after:transition-all after:duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50 rounded">사업계획</Link>
+            <Link href="#organization" className="text-white relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-white hover:after:w-full after:transition-all after:duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50 rounded">조직체계</Link>
+            <Link href="/donation/annual-records" className="text-white relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-white hover:after:w-full after:transition-all after:duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50 rounded">연간 기부금 모금액 내역</Link>
+            <Link href="/donation/usage-history" className="text-white relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-white hover:after:w-full after:transition-all after:duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50 rounded">활용 실적 내역</Link>
           </div>
 
           <div className="flex items-center space-x-4">
@@ -47,12 +47,12 @@ export default function Navigation() {
 
         {mobileMenuOpen && (
           <div className="md:hidden mt-4 space-y-2 bg-[#2C3E50] p-4 rounded-b-lg">
-            <Link href="#about" className="block py-2 text-white hover:bg-[#34495e] rounded px-3" onClick={() => setMobileMenuOpen(false)}>조직소개</Link>
-            <Link href="#vision" className="block py-2 text-white hover:bg-[#34495e] rounded px-3" onClick={() => setMobileMenuOpen(false)}>비전</Link>
-            <Link href="#business" className="block py-2 text-white hover:bg-[#34495e] rounded px-3" onClick={() => setMobileMenuOpen(false)}>사업계획</Link>
-            <Link href="#organization" className="block py-2 text-white hover:bg-[#34495e] rounded px-3" onClick={() => setMobileMenuOpen(false)}>조직체계</Link>
-            <Link href="/donation/annual-records" className="block py-2 text-white hover:bg-[#34495e] rounded px-3" onClick={() => setMobileMenuOpen(false)}>연간 기부금 모금액 내역</Link>
-            <Link href="/donation/usage-history" className="block py-2 text-white hover:bg-[#34495e] rounded px-3" onClick={() => setMobileMenuOpen(false)}>활용 실적 내역</Link>
+            <Link href="#about" className="block py-2 text-white relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-white hover:after:w-full after:transition-all after:duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50 rounded px-3" onClick={() => setMobileMenuOpen(false)}>조직소개</Link>
+            <Link href="#vision" className="block py-2 text-white relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-white hover:after:w-full after:transition-all after:duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50 rounded px-3" onClick={() => setMobileMenuOpen(false)}>비전</Link>
+            <Link href="#business" className="block py-2 text-white relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-white hover:after:w-full after:transition-all after:duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50 rounded px-3" onClick={() => setMobileMenuOpen(false)}>사업계획</Link>
+            <Link href="#organization" className="block py-2 text-white relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-white hover:after:w-full after:transition-all after:duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50 rounded px-3" onClick={() => setMobileMenuOpen(false)}>조직체계</Link>
+            <Link href="/donation/annual-records" className="block py-2 text-white relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-white hover:after:w-full after:transition-all after:duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50 rounded px-3" onClick={() => setMobileMenuOpen(false)}>연간 기부금 모금액 내역</Link>
+            <Link href="/donation/usage-history" className="block py-2 text-white relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-white hover:after:w-full after:transition-all after:duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50 rounded px-3" onClick={() => setMobileMenuOpen(false)}>활용 실적 내역</Link>
           </div>
         )}
       </nav>

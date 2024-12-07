@@ -137,11 +137,11 @@ export default function Component() {
       </section>
 
       {/* 2025 Business Plan Section */}
-      <section id="business" className="py-12 md:py-20 bg-gray-50">
+      <section id="business" className="py-12 md:py-20 bg-[#E6F7F4]">
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-16">2025년 사업계획</h2>
+          <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-16 text-[#00AC8F]">2025년 사업계획</h2>
           <div className="space-y-8">
-            <div>
+            {/* <div>
               <h3 className="text-xl md:text-2xl font-semibold mb-4">주요사업 목표</h3>
               <ul className="list-disc pl-5 space-y-2 text-sm md:text-base">
                 <li>해외 저개발국가의 효율적 지원을 위한 연구, 조사</li>
@@ -150,11 +150,11 @@ export default function Component() {
                 <li>해외 저개발국가 생활지원 사업</li>
                 <li>유관단체와의 협력사업</li>
               </ul>
-            </div>
+            </div> */}
             
             <div>
-              <h3 className="text-xl md:text-2xl font-semibold mb-4">세부사업 내용</h3>
-              <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+              {/* <h3 className="text-xl md:text-2xl font-semibold mb-4 text-[#00AC8F]">세부사업 내용</h3> */}
+              <div className="grid gap-4 md:grid-cols-1 lg:grid-cols-5 text-white">
                 {[
                   "해외 저개발국가의 효율적 지원을 위한 연구, 조사",
                   "해외 저개발국가의 글로벌 역량강화를 위한 교육사업 및 교육환경개선 지원사업",
@@ -162,9 +162,13 @@ export default function Component() {
                   "해외 저개발국가 생활지원 사업",
                   "유관단체와의 협력사업"
                 ].map((item, index) => (
-                  <div key={index} className="bg-white p-4 md:p-6 rounded-lg shadow-sm">
+                  <div key={index} className="bg-[#00AC8F] p-4 md:p-6 rounded-lg shadow-sm">
                     <h4 className="text-lg md:text-xl font-semibold mb-2">{index + 1}. {item}</h4>
-                    <p className="text-sm text-gray-600">각 사업에 대한 상세 내용, 시행 방법, 예산 등이 계획되어 있습니다.</p>
+                    <p className="text-sm text-white">각 사업에 대한 상세 내용, 시행 방법, 예산 등이 계획되어 있습니다.</p>
+                    <p className="text-sm text-white">각 사업에 대한 상세 내용, 시행 방법, 예산 등이 계획되어 있습니다.</p>
+                    <p className="text-sm text-white">각 사업에 대한 상세 내용, 시행 방법, 예산 등이 계획되어 있습니다.</p>
+                    <p className="text-sm text-white">각 사업에 대한 상세 내용, 시행 방법, 예산 등이 계획되어 있습니다.</p>
+                    <p className="text-sm text-white">각 사업에 대한 상세 내용, 시행 방법, 예산 등이 계획되어 있습니다.</p>
                   </div>
                 ))}
               </div>
