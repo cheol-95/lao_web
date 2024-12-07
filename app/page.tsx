@@ -140,40 +140,7 @@ export default function Component() {
       <section id="business" className="py-12 md:py-20 bg-[#E6F7F4]">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-16 text-[#00AC8F]">2025년 사업계획</h2>
-          <div className="space-y-8">
-            {/* <div>
-              <h3 className="text-xl md:text-2xl font-semibold mb-4">주요사업 목표</h3>
-              <ul className="list-disc pl-5 space-y-2 text-sm md:text-base">
-                <li>해외 저개발국가의 효율적 지원을 위한 연구, 조사</li>
-                <li>해외 저개발국가의 글로벌 역량강화를 위한 교육사업 및 교육환경개선 지원사업</li>
-                <li>해외 저개발국가 공동체, 문화체험 및 스포츠 교류 지원</li>
-                <li>해외 저개발국가 생활지원 사업</li>
-                <li>유관단체와의 협력사업</li>
-              </ul>
-            </div> */}
-            
-            <div>
-              {/* <h3 className="text-xl md:text-2xl font-semibold mb-4 text-[#00AC8F]">세부사업 내용</h3> */}
-              <div className="grid gap-4 md:grid-cols-1 lg:grid-cols-5 text-white">
-                {[
-                  "해외 저개발국가의 효율적 지원을 위한 연구, 조사",
-                  "해외 저개발국가의 글로벌 역량강화를 위한 교육사업 및 교육환경개선 지원사업",
-                  "해외 저개발국가 공동체, 문화체험 및 스포츠 교류 지원",
-                  "해외 저개발국가 생활지원 사업",
-                  "유관단체와의 협력사업"
-                ].map((item, index) => (
-                  <div key={index} className="bg-[#00AC8F] p-4 md:p-6 rounded-lg shadow-sm">
-                    <h4 className="text-lg md:text-xl font-semibold mb-2">{index + 1}. {item}</h4>
-                    <p className="text-sm text-white">각 사업에 대한 상세 내용, 시행 방법, 예산 등이 계획되어 있습니다.</p>
-                    <p className="text-sm text-white">각 사업에 대한 상세 내용, 시행 방법, 예산 등이 계획되어 있습니다.</p>
-                    <p className="text-sm text-white">각 사업에 대한 상세 내용, 시행 방법, 예산 등이 계획되어 있습니다.</p>
-                    <p className="text-sm text-white">각 사업에 대한 상세 내용, 시행 방법, 예산 등이 계획되어 있습니다.</p>
-                    <p className="text-sm text-white">각 사업에 대한 상세 내용, 시행 방법, 예산 등이 계획되어 있습니다.</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+          <InfiniteScrollCards />
         </div>
       </section>
       
@@ -277,4 +244,87 @@ function AnimatedSection({ title, description, imageSrc, imageAlt, imageOnLeft }
       </div>
     </div>
   )
+}
+
+
+
+
+
+function InfiniteScrollCards() {
+  const cards = [
+    "해외 저개발국가의 효율적 지원을 위한 연구, 조사",
+    "해외 저개발국가의 글로벌 역량강화를 위한 교육사업 및 교육환경개선 지원사업",
+    "해외 저개발국가 공동체, 문화체험 및 스포츠 교류 지원",
+    "해외 저개발국가 생활지원 사업",
+    "유관단체와의 협력사업",
+    "아시안게임 야구 우승",
+    "라오브라더스 오순절 성령운동을 전세계에 펼카다.",
+    "테슬라 주식 올라라.",
+  ];
+
+  const containerRef = useRef<HTMLDivElement | null>(null);
+
+  // 초기 렌더링 시 스크롤 위치 조정
+  useEffect(() => {
+    const container = containerRef.current;
+    if (container) {
+      // 중간 복제 카드로 스크롤 위치 설정
+      container.scrollLeft = container.scrollWidth / 3;
+    }
+  }, []);
+
+  const handleScroll = () => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const scrollWidth = container.scrollWidth;
+    const scrollLeft = container.scrollLeft;
+    const containerWidth = container.offsetWidth;
+
+    // 스크롤 위치가 복제된 카드로 넘어갈 경우 실제 카드로 이동
+    if (scrollLeft <= 0) {
+      container.scrollLeft = scrollWidth / 3; // 맨 오른쪽 복제 영역에서 원본 영역으로 이동
+    } else if (scrollLeft >= scrollWidth - containerWidth) {
+      container.scrollLeft = scrollWidth / 3 - containerWidth; // 맨 왼쪽 복제 영역에서 원본 영역으로 이동
+    }
+  };
+
+  return (
+    <div
+      className="relative overflow-x-scroll pb-4 scrollbar-hidden"
+      ref={containerRef}
+      onScroll={handleScroll}
+      style={{
+        WebkitOverflowScrolling: 'touch', // 모바일 부드러운 스크롤 지원
+      }}
+    >
+      <div className="flex space-x-4 min-w-max">
+        {/* 왼쪽 복제 카드 */}
+        {cards.map((item, index) => (
+          <Card key={`left-${index}`} index={index} item={item} />
+        ))}
+
+        {/* 원본 카드 */}
+        {cards.map((item, index) => (
+          <Card key={`original-${index}`} index={index} item={item} />
+        ))}
+
+        {/* 오른쪽 복제 카드 */}
+        {cards.map((item, index) => (
+          <Card key={`right-${index}`} index={index} item={item} />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function Card({ index, item }: { index: number; item: string }) {
+  return (
+    <div
+      className="bg-[#00AC8F] p-4 md:p-6 rounded-lg shadow-sm flex-shrink-0 w-80 text-white"
+    >
+      <h4 className="text-lg md:text-xl font-semibold mb-2">{index + 1}. {item}</h4>
+      <p className="text-sm text-white">각 사업에 대한 상세 내용, 시행 방법, 예산 등이 계획되어 있습니다.</p>
+    </div>
+  );
 }

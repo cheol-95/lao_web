@@ -64,3 +64,13 @@ body {
 .md\:even\:animate-fade-in-side:nth-child(even) {
   animation: fadeInRight 0.6s ease-out forwards;
 }
+
+/* 스크롤 바 숨기기 */
+.scrollbar-hidden {
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
+}
+
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
