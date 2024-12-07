@@ -259,8 +259,8 @@ function InfiniteScrollCards() {
     "해외 저개발국가 생활지원 사업",
     "유관단체와의 협력사업",
     "아시안게임 야구 우승",
-    "라오브라더스 오순절 성령운동을 전세계에 펼카다.",
-    "테슬라 주식 올라라.",
+    "라오브라더스 오순절 성령운동을 전세계에 펼치다.",
+    "야구를 통해 세상으로 나아가는 라오브라더스.",
   ];
 
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -273,11 +273,10 @@ function InfiniteScrollCards() {
     scrollIntervalRef.current = setInterval(() => {
       container.scrollLeft += 1; // 매번 1px씩 이동
 
-      // 끝에 도달했을 때 루프 처리
       if (container.scrollLeft >= container.scrollWidth - container.offsetWidth) {
         container.scrollLeft = container.scrollWidth / 3; // 원본 카드로 이동
       }
-    }, 15); // 20ms 간격으로 이동
+    }, 15); // 15ms 간격으로 이동
   };
 
   const stopAutoScroll = () => {
@@ -290,9 +289,8 @@ function InfiniteScrollCards() {
   useEffect(() => {
     const container = containerRef.current;
 
-    // 초기 위치를 원본 카드로 설정
     if (container) {
-      container.scrollLeft = container.scrollWidth / 3;
+      container.scrollLeft = container.scrollWidth / 3; // 초기 위치 설정
     }
 
     startAutoScroll(); // 자동 스크롤 시작
@@ -313,7 +311,7 @@ function InfiniteScrollCards() {
       <div className="flex space-x-4 min-w-max">
         {/* 왼쪽 복제 카드 */}
         {cards.map((item, index) => (
-          <Card
+          <CardContainer
             key={`left-${index}`}
             index={index}
             item={item}
@@ -324,7 +322,7 @@ function InfiniteScrollCards() {
 
         {/* 원본 카드 */}
         {cards.map((item, index) => (
-          <Card
+          <CardContainer
             key={`original-${index}`}
             index={index}
             item={item}
@@ -335,7 +333,7 @@ function InfiniteScrollCards() {
 
         {/* 오른쪽 복제 카드 */}
         {cards.map((item, index) => (
-          <Card
+          <CardContainer
             key={`right-${index}`}
             index={index}
             item={item}
@@ -348,7 +346,7 @@ function InfiniteScrollCards() {
   );
 }
 
-function Card({
+function CardContainer({
   index,
   item,
   stopAutoScroll,
@@ -361,16 +359,25 @@ function Card({
 }) {
   return (
     <div
-      className="bg-[#00AC8F] p-4 md:p-6 rounded-lg shadow-sm flex-shrink-0 w-80 text-white"
-      onMouseEnter={stopAutoScroll} // 마우스가 올라가면 자동 스크롤 멈춤
-      onMouseLeave={startAutoScroll} // 마우스가 떠나면 자동 스크롤 재개
+      className="relative flex-shrink-0 w-80 h-60 bg-transparent" // 새로운 영역 (카드와 동일한 가로 너비, 더 긴 세로)
     >
-      <h4 className="text-lg md:text-xl font-semibold mb-2">
-        {index + 1}. {item}
-      </h4>
-      <p className="text-sm text-white">
-        각 사업에 대한 상세 내용, 시행 방법, 예산 등이 계획되어 있습니다.
-      </p>
+      <div
+        className={`absolute w-full p-4 md:p-6 rounded-lg shadow-sm bg-[#00AC8F] text-white ${
+          index % 2 === 0 ? "top-0" : "bottom-0"
+        }`}
+        style={{
+          width: "100%", // 카드가 부모 영역의 가로 너비를 채움
+        }}
+        onMouseEnter={stopAutoScroll} // 마우스가 올라가면 자동 스크롤 멈춤
+        onMouseLeave={startAutoScroll} // 마우스가 떠나면 자동 스크롤 재개
+      >
+        <h4 className="text-lg md:text-xl font-semibold mb-2">
+          {index + 1}. {item}
+        </h4>
+        <p className="text-sm text-white">
+          각 사업에 대한 상세 내용, 시행 방법, 예산 등이 계획되어 있습니다. 해당 섹션의 제목과 내용은 추후 변경될 예정입니다.
+        </p>
+      </div>
     </div>
   );
 }
