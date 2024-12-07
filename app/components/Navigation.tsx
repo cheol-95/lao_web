@@ -7,16 +7,16 @@ export default function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-[#2C3E50] border-b">
-      <nav className="container mx-auto px-4 py-4">
+    <header className="sticky top-0 z-50 bg-[#00AC8F] border-b">
+      <nav className="container mx-auto px-4 py-2">
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center">
             <Image
               src="/logo_main.png"
               alt="메인 로고"
-              width={150}
-              height={40}
-              className="h-10 w-auto"
+              width={200}
+              height={53}
+              className="h-14 w-auto"
             />
           </Link>
 

@@ -24,7 +24,7 @@ export default function Component() {
             <div className="mt-12">
               {/* <h2 className="text-2xl font-bold mb-4">글로벌 브라더스 비전</h2> */}
               <div className="space-y-4">
-                <p className="text-lg font-semibold">글로벌한 재능과 역량을 보유한 청년 인재 양성</p>
+                <h2 className="text-2xl font-bold mb-4">글로벌한 재능과 역량을 보유한 청년 인재 양성</h2>
                 <p className="text-sm md:text-base">불평등한 기회에 좌절하지 않고 다양한 가능성을 창출하여, 경제적 어려움이나 부족한 인맥 때문에 경험하지 못할 청소년과 청년 시기의 소중한 기회를 제공하여 세상 어디서든 빛을 발할 수 있는 자기주도적이고 책임감 있는 인격체로 성장하도록 지원합니다.</p>
                 <p className="text-sm md:text-base">동남아시아 소수민족 청소년, 여성, 소외계층, 그리고 비인기 스포츠 종목 선수들에게 다양한 경험의 기회를 제공하여 이들이 사회적으로 가치 있는 존재로 성장할 수 있도록 돕습니다.</p>
                 <p className="text-sm md:text-base">이를 바탕으로 세계 어디서든 다양성을 존중하며, 배려와 매너를 갖춘 글로벌 인재로 자리 잡는 것을 목표로 합니다.</p>
@@ -42,24 +42,40 @@ export default function Component() {
               />
             </div>
 
-            {/* Main Purpose Business section remains unchanged */}
-            <div className="mt-12">
-              <h2 className="text-2xl font-bold mb-4">주요 목적사업</h2>
-              <div className="grid sm:grid-cols-2 gap-6">
-                {[
-                  { title: '야구', desc: '야구를 통한 글로벌 인재 양성' },
-                  { title: '공동체 생활', desc: '함께하는 공동체 생활을 통한 라이프 스킬 습득' },
-                  { title: '인재 양성', desc: '사회에 필요한 인재 양성' },
-                  { title: '지원 사업', desc: '동남아시아 청소년, 소외계층, 여성, 소수민족, 비인기 스포츠 종목 운동선수들을 위한 자립과 자기 계발 및 창업지원 및 교육 지원' }
-                ].map((item, i) => (
-                  <div key={i} className="bg-white p-4 rounded-lg shadow-sm">
-                    <h3 className="text-lg font-bold mb-2">{item.title}</h3>
-                    <p className="text-sm text-gray-600">{item.desc}</p>
-                  </div>
-                ))}
-              </div>
+            {/* Main Purpose Business section */}
+          <div className="space-y-6">
+            <h2 className="text-2xl font-bold mb-4">주요 목적사업</h2>
+            <div className="grid sm:grid-cols-2 gap-6">
+              {[
+                // { title: '지원 사업', desc: '동남아시아 청소년, 소외계층, 여성, 소수민족, 비인기 스포츠 종목 운동선수들을 위한 자립과 자기 계발 및 창업지원 및 교육 지원' },
+                // { "title": "야구", // "desc": "야구에 대한 열정과 꿈을 가진 이들에게 기회를 제공하여 꿈을 키우고 미래를 열어갈 수 있도록 함께하는 것이 우리의 목표입니다",
+                //   "desc": "야구에 대한 열정과 꿈을 가진 이들에게 기회를 제공하여 꿈을 키우고 미래를 열어갈 수 있는 환경 지원",
+                // },
+                // { title: '공동체 생활', desc: '함께하는 공동체 생활을 통한 라이프 스킬 습득' },
+                // { title: '인재 양성', desc: '사회에 필요한 인재 양성' }
+                { title: '지원 사업', desc: "동남아시아 청소년, 소외계층, 여성, 소수민족, 비인기 스포츠 종목 운동선수들을 위한 자립과 자기 계발 및 창업지원 및 교육을 지원합니다."},
+                { "title": "야구",
+                  "desc": "야구에 대한 열정과 꿈을 가진 이들에게 기회를 제공하여 꿈을 키우고 미래를 열어갈 수 있도록 함께하는 것이 우리의 목표입니다",
+                  // desc: "야구에 대한 열정과 꿈을 가진 이들에게 기회를 제공하여 자립과 자기 계발을 돕습니다.",
+                },
+                { title: '공동체 생활', desc: "함께하는 공동체 생활을 통해 라이프 스킬을 습득할 수 있도록 지원합니다."},
+                { title: '인재 양성', desc: "사회에 필요한 인재를 양성합니다."}
+
+                // {
+                //   "지원 사업": "동남아시아 청소년, 소외계층, 여성, 소수민족, 비인기 스포츠 종목 운동선수들을 위한 자립과 자기 계발 및 창업지원 및 교육 지원",
+                //   "야구": "야구에 대한 열정과 꿈을 가진 이들에게 기회를 제공하여 자립과 자기 계발을 돕습니다.",
+                //   "공동체 생활": "함께하는 공동체 생활을 통해 라이프 스킬을 습득할 수 있도록 지원합니다.",
+                //   "인재 양성": "사회에 필요한 인재를 양성합니다."
+                // }
+              ].map((item, i) => (
+                <div key={i} className="bg-[#E6F7F4] p-4 rounded-lg shadow-sm hover:bg-[#CCF0EA] transition-colors duration-200">
+                  <h3 className="text-lg font-bold mb-2 text-[#00AC8F]">{item.title}</h3>
+                  <p className="text-sm text-gray-600">{item.desc}</p>
+                </div>
+              ))}
             </div>
           </div>
+        </div>
 
           {/* Group Image for Desktop */}
           <div className="hidden md:block relative h-[600px] rounded-lg overflow-hidden mt-8 md:mt-0">
@@ -92,7 +108,7 @@ export default function Component() {
               imageAlt="이웃과 함께하는 모습"
               imageOnLeft={true}
             />
-
+{/* 
             <AnimatedSection
               title="주님의 은혜를"
               description="오중복음 삼중축복의 은혜가 넘칩니다."
@@ -107,7 +123,7 @@ export default function Component() {
               imageSrc="/Pitcher.jpeg"
               imageAlt="선교 활동 모습"
               imageOnLeft={true}
-            />
+            /> */}
 
             <AnimatedSection
               title="청년 인재 양성"
