@@ -250,6 +250,7 @@ function AnimatedSection({ title, description, imageSrc, imageAlt, imageOnLeft }
 
 
 
+
 function InfiniteScrollCards() {
   const cards = [
     "해외 저개발국가의 효율적 지원을 위한 연구, 조사",
@@ -263,68 +264,113 @@ function InfiniteScrollCards() {
   ];
 
   const containerRef = useRef<HTMLDivElement | null>(null);
+  const scrollIntervalRef = useRef<NodeJS.Timeout | null>(null);
 
-  // 초기 렌더링 시 스크롤 위치 조정
-  useEffect(() => {
-    const container = containerRef.current;
-    if (container) {
-      // 중간 복제 카드로 스크롤 위치 설정
-      container.scrollLeft = container.scrollWidth / 3;
-    }
-  }, []);
-
-  const handleScroll = () => {
+  const startAutoScroll = () => {
     const container = containerRef.current;
     if (!container) return;
 
-    const scrollWidth = container.scrollWidth;
-    const scrollLeft = container.scrollLeft;
-    const containerWidth = container.offsetWidth;
+    scrollIntervalRef.current = setInterval(() => {
+      container.scrollLeft += 1; // 매번 1px씩 이동
 
-    // 스크롤 위치가 복제된 카드로 넘어갈 경우 실제 카드로 이동
-    if (scrollLeft <= 0) {
-      container.scrollLeft = scrollWidth / 3; // 맨 오른쪽 복제 영역에서 원본 영역으로 이동
-    } else if (scrollLeft >= scrollWidth - containerWidth) {
-      container.scrollLeft = scrollWidth / 3 - containerWidth; // 맨 왼쪽 복제 영역에서 원본 영역으로 이동
+      // 끝에 도달했을 때 루프 처리
+      if (container.scrollLeft >= container.scrollWidth - container.offsetWidth) {
+        container.scrollLeft = container.scrollWidth / 3; // 원본 카드로 이동
+      }
+    }, 15); // 20ms 간격으로 이동
+  };
+
+  const stopAutoScroll = () => {
+    if (scrollIntervalRef.current) {
+      clearInterval(scrollIntervalRef.current);
+      scrollIntervalRef.current = null;
     }
   };
+
+  useEffect(() => {
+    const container = containerRef.current;
+
+    // 초기 위치를 원본 카드로 설정
+    if (container) {
+      container.scrollLeft = container.scrollWidth / 3;
+    }
+
+    startAutoScroll(); // 자동 스크롤 시작
+
+    return () => {
+      stopAutoScroll(); // 컴포넌트 언마운트 시 자동 스크롤 중지
+    };
+  }, []);
 
   return (
     <div
       className="relative overflow-x-scroll pb-4 scrollbar-hidden"
       ref={containerRef}
-      onScroll={handleScroll}
       style={{
-        WebkitOverflowScrolling: 'touch', // 모바일 부드러운 스크롤 지원
+        WebkitOverflowScrolling: "touch", // 모바일 부드러운 스크롤 지원
       }}
     >
       <div className="flex space-x-4 min-w-max">
         {/* 왼쪽 복제 카드 */}
         {cards.map((item, index) => (
-          <Card key={`left-${index}`} index={index} item={item} />
+          <Card
+            key={`left-${index}`}
+            index={index}
+            item={item}
+            stopAutoScroll={stopAutoScroll}
+            startAutoScroll={startAutoScroll}
+          />
         ))}
 
         {/* 원본 카드 */}
         {cards.map((item, index) => (
-          <Card key={`original-${index}`} index={index} item={item} />
+          <Card
+            key={`original-${index}`}
+            index={index}
+            item={item}
+            stopAutoScroll={stopAutoScroll}
+            startAutoScroll={startAutoScroll}
+          />
         ))}
 
         {/* 오른쪽 복제 카드 */}
         {cards.map((item, index) => (
-          <Card key={`right-${index}`} index={index} item={item} />
+          <Card
+            key={`right-${index}`}
+            index={index}
+            item={item}
+            stopAutoScroll={stopAutoScroll}
+            startAutoScroll={startAutoScroll}
+          />
         ))}
       </div>
     </div>
   );
 }
 
-function Card({ index, item }: { index: number; item: string }) {
+function Card({
+  index,
+  item,
+  stopAutoScroll,
+  startAutoScroll,
+}: {
+  index: number;
+  item: string;
+  stopAutoScroll: () => void;
+  startAutoScroll: () => void;
+}) {
   return (
     <div
       className="bg-[#00AC8F] p-4 md:p-6 rounded-lg shadow-sm flex-shrink-0 w-80 text-white"
+      onMouseEnter={stopAutoScroll} // 마우스가 올라가면 자동 스크롤 멈춤
+      onMouseLeave={startAutoScroll} // 마우스가 떠나면 자동 스크롤 재개
     >
-      <h4 className="text-lg md:text-xl font-semibold mb-2">{index + 1}. {item}</h4>
-      <p className="text-sm text-white">각 사업에 대한 상세 내용, 시행 방법, 예산 등이 계획되어 있습니다.</p>
+      <h4 className="text-lg md:text-xl font-semibold mb-2">
+        {index + 1}. {item}
+      </h4>
+      <p className="text-sm text-white">
+        각 사업에 대한 상세 내용, 시행 방법, 예산 등이 계획되어 있습니다.
+      </p>
     </div>
   );
 }
