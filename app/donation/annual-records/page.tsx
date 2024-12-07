@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Layout from '../../components/Layout'
+import Link from 'next/link'
 
 export default function AnnualDonationRecords() {
   const records = [
@@ -48,7 +49,11 @@ export default function AnnualDonationRecords() {
               {records.map((record) => (
                 <tr key={record.id} className="hover:bg-gray-50">
                   <td className="px-6 py-4 border-b text-gray-800">{record.id}</td>
-                  <td className="px-6 py-4 border-b text-gray-800">{record.title}</td>
+                  <td className="px-6 py-4 border-b text-gray-800">
+                    <Link href={`/donation/annual-records/${record.id}`} className="hover:text-blue-600 hover:underline">
+                      {record.title}
+                    </Link>
+                  </td>
                   <td className="px-6 py-4 border-b text-gray-800">{record.author}</td>
                   <td className="px-6 py-4 border-b text-gray-800">{record.views}</td>
                   <td className="px-6 py-4 border-b text-gray-800">{record.date}</td>
