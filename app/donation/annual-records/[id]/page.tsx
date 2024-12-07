@@ -1,6 +1,7 @@
 'use client'
 
 // import { useParams } from 'next/navigation'
+import Link from 'next/link'
 import Layout from '../../../components/Layout'
 
 export default function DonationRecordDetail() {
@@ -64,9 +65,9 @@ export default function DonationRecordDetail() {
             <div className="flex">
               <div className="w-32 py-4 px-4 bg-gray-50 text-gray-700">이전글</div>
               <div className="flex-1 py-4 px-4">
-                <a href="/donation/annual-records/2" className="text-gray-800 hover:underline">
+                <Link href="/donation/annual-records/2" className="text-gray-800 hover:underline">
                   공익법인 경기음악연구회 2022 기부금 모금액 내역(출연재산 없음)
-                </a>
+                </Link>
               </div>
             </div>
           </div>

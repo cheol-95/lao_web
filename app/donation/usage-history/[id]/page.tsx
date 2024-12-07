@@ -1,6 +1,7 @@
 'use client'
 
 // import { useParams } from 'next/navigation'
+import Link from 'next/link'
 import Layout from '../../../components/Layout'
 
 export default function UsageHistoryDetail() {
@@ -59,11 +60,15 @@ export default function UsageHistoryDetail() {
           <div className="border-t border-b border-gray-200">
             <div className="flex border-b border-gray-200">
               <div className="w-32 py-4 px-4 bg-gray-50 text-gray-700">다음글</div>
-              <div className="flex-1 py-4 px-4 text-gray-500">다음글이 없습니다.</div>
+              <div className="flex-1 py-4 px-4 text-gray-500">
+                <Link href="#">다음글이 없습니다.</Link>
+              </div>
             </div>
             <div className="flex">
               <div className="w-32 py-4 px-4 bg-gray-50 text-gray-700">이전글</div>
-              <div className="flex-1 py-4 px-4 text-gray-500">이전글이 없습니다.</div>
+              <div className="flex-1 py-4 px-4 text-gray-500">
+                <Link href="#">이전글이 없습니다.</Link>
+              </div>
             </div>
           </div>
 
