@@ -1,6 +1,5 @@
 'use client'
 
-import { useState } from 'react'
 import Layout from '../../components/Layout'
 import Link from 'next/link'
 
@@ -37,19 +36,31 @@ export default function AnnualDonationRecords() {
         <div className="grid grid-cols-1 gap-4 md:hidden">
           {records.map((record) => (
             <div key={record.id} className="bg-white p-4 rounded-lg shadow">
-              <div className="flex justify-between items-center mb-2">
-                <span className="text-gray-800 font-semibold">번호: {record.id}</span>
-                <span className="text-gray-600 text-sm">{record.date}</span>
+              <div className="mb-2">
+                <span className="text-sm text-gray-500">번호: </span>
+                <span className="text-gray-800">{record.id}</span>
               </div>
-              <h2 className="text-lg font-bold text-gray-800 mb-2">{record.title}</h2>
-              <p className="text-gray-600 mb-2">글쓴이: {record.author}</p>
-              <p className="text-gray-600">조회수: {record.views}</p>
-              <Link href={`/donation/annual-records/${record.id}`} className="hover:text-blue-600 hover:underline">
-                더보기
-              </Link>
+              <div className="mb-2">
+                <Link href={`/donation/annual-records/${record.id}`} className="text-gray-800 hover:text-blue-600 hover:underline font-medium">
+                  {record.title}
+                </Link>
+              </div>
+              <div className="mb-2">
+                <span className="text-sm text-gray-500">글쓴이: </span>
+                <span className="text-gray-800">{record.author}</span>
+              </div>
+              <div className="mb-2">
+                <span className="text-sm text-gray-500">조회수: </span>
+                <span className="text-gray-800">{record.views}</span>
+              </div>
+              <div>
+                <span className="text-sm text-gray-500">등록일: </span>
+                <span className="text-gray-800">{record.date}</span>
+              </div>
             </div>
           ))}
         </div>
+
         <div className="hidden md:block overflow-x-auto">
           <table className="min-w-full bg-white border border-gray-300">
             <thead>

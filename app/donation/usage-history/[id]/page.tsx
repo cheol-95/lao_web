@@ -1,11 +1,11 @@
 'use client'
 
-import { useParams } from 'next/navigation'
+// import { useParams } from 'next/navigation'
 import Layout from '../../../components/Layout'
 
 export default function UsageHistoryDetail() {
-  const params = useParams()
-  const id = params.id
+  // const params = useParams()
+  // const id = params.id
 
   // 실제로는 API나 데이터베이스에서 가져와야 하는 데이터입니다
   const recordDetails = {
@@ -26,28 +26,49 @@ export default function UsageHistoryDetail() {
             <h1 className="text-xl text-gray-800 mb-2">{recordDetails.title}</h1>
           </div>
           
-          {/* 메타 정보 테이블 */}
+          {/* 메타 정보 */}
           <div className="border-b border-gray-200">
-            <table className="w-full">
-              <tbody>
-                <tr>
-                  <th className="py-4 px-4 text-left bg-gray-50 border-b border-gray-200 w-32 text-gray-700">등록일</th>
-                  <td className="py-4 px-4 border-b border-gray-200 text-gray-800">{recordDetails.date}</td>
-                </tr>
-                <tr>
-                  <th className="py-4 px-4 text-left bg-gray-50 border-b border-gray-200 w-32 text-gray-700">작성자</th>
-                  <td className="py-4 px-4 border-b border-gray-200 text-gray-800">{recordDetails.author}</td>
-                </tr>
-                <tr>
-                  <th className="py-4 px-4 text-left bg-gray-50 border-b border-gray-200 w-32 text-gray-700">연락처</th>
-                  <td className="py-4 px-4 border-b border-gray-200 text-gray-800">{recordDetails.phone}</td>
-                </tr>
-                <tr>
-                  <th className="py-4 px-4 text-left bg-gray-50 border-b border-gray-200 w-32 text-gray-700">이메일</th>
-                  <td className="py-4 px-4 border-b border-gray-200 text-gray-800">{recordDetails.email}</td>
-                </tr>
-              </tbody>
-            </table>
+            <div className="hidden md:block">
+              <table className="w-full">
+                <tbody>
+                  <tr>
+                    <th className="py-4 px-4 text-left bg-gray-50 border-b border-gray-200 w-32 text-gray-700">등록일</th>
+                    <td className="py-4 px-4 border-b border-gray-200 text-gray-800">{recordDetails.date}</td>
+                  </tr>
+                  <tr>
+                    <th className="py-4 px-4 text-left bg-gray-50 border-b border-gray-200 w-32 text-gray-700">작성자</th>
+                    <td className="py-4 px-4 border-b border-gray-200 text-gray-800">{recordDetails.author}</td>
+                  </tr>
+                  <tr>
+                    <th className="py-4 px-4 text-left bg-gray-50 border-b border-gray-200 w-32 text-gray-700">연락처</th>
+                    <td className="py-4 px-4 border-b border-gray-200 text-gray-800">{recordDetails.phone}</td>
+                  </tr>
+                  <tr>
+                    <th className="py-4 px-4 text-left bg-gray-50 border-b border-gray-200 w-32 text-gray-700">이메일</th>
+                    <td className="py-4 px-4 border-b border-gray-200 text-gray-800">{recordDetails.email}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div className="md:hidden space-y-4 py-4">
+              <div className="space-y-2">
+                <div className="text-sm text-gray-500">등록일</div>
+                <div className="text-gray-800">{recordDetails.date}</div>
+              </div>
+              <div className="space-y-2">
+                <div className="text-sm text-gray-500">작성자</div>
+                <div className="text-gray-800">{recordDetails.author}</div>
+              </div>
+              <div className="space-y-2">
+                <div className="text-sm text-gray-500">연락처</div>
+                <div className="text-gray-800">{recordDetails.phone}</div>
+              </div>
+              <div className="space-y-2">
+                <div className="text-sm text-gray-500">이메일</div>
+                <div className="text-gray-800">{recordDetails.email}</div>
+              </div>
+            </div>
           </div>
 
           {/* 내용 */}
@@ -57,13 +78,26 @@ export default function UsageHistoryDetail() {
 
           {/* 이전글/다음글 */}
           <div className="border-t border-b border-gray-200">
-            <div className="flex border-b border-gray-200">
-              <div className="w-32 py-4 px-4 bg-gray-50 text-gray-700">다음글</div>
-              <div className="flex-1 py-4 px-4 text-gray-500">다음글이 없습니다.</div>
+            <div className="hidden md:block">
+              <div className="flex border-b border-gray-200">
+                <div className="w-32 py-4 px-4 bg-gray-50 text-gray-700">다음글</div>
+                <div className="flex-1 py-4 px-4 text-gray-500">다음글이 없습니다.</div>
+              </div>
+              <div className="flex">
+                <div className="w-32 py-4 px-4 bg-gray-50 text-gray-700">이전글</div>
+                <div className="flex-1 py-4 px-4 text-gray-500">이전글이 없습니다.</div>
+              </div>
             </div>
-            <div className="flex">
-              <div className="w-32 py-4 px-4 bg-gray-50 text-gray-700">이전글</div>
-              <div className="flex-1 py-4 px-4 text-gray-500">이전글이 없습니다.</div>
+
+            <div className="md:hidden">
+              <div className="border-b border-gray-200 p-4">
+                <div className="text-sm text-gray-500 mb-1">다음글</div>
+                <div className="text-gray-500">다음글이 없습니다.</div>
+              </div>
+              <div className="p-4">
+                <div className="text-sm text-gray-500 mb-1">이전글</div>
+                <div className="text-gray-500">이전글이 없습니다.</div>
+              </div>
             </div>
           </div>
 

@@ -1,11 +1,11 @@
 'use client'
 
-import { useParams } from 'next/navigation'
+// import { useParams } from 'next/navigation'
 import Layout from '../../../components/Layout'
 
 export default function DonationRecordDetail() {
-  const params = useParams()
-  const id = params.id
+  // const params = useParams()
+  // const id = params.id
 
   // 실제로는 API나 데이터베이스에서 가져와야 하는 데이터입니다
   const recordDetails = {

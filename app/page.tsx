@@ -6,7 +6,7 @@ import Navigation from './components/Navigation';
 import Footer from './components/Footer';
 
 export default function Component() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  // const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
     <div className="min-h-screen bg-white text-black">
