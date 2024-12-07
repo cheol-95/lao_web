@@ -30,12 +30,12 @@ export default function Navigation() {
           </div>
 
           <div className="flex items-center space-x-4">
-            <button aria-label="알림" className="p-2 hover:bg-[#34495e] rounded-full">
+            {/* <button aria-label="알림" className="p-2 hover:bg-[#34495e] rounded-full">
               <Bell className="h-5 w-5 text-white" />
-            </button>
-            <button aria-label="사용자 메뉴" className="p-2 hover:bg-[#34495e] rounded-full">
+            </button> */}
+            {/* <button aria-label="사용자 메뉴" className="p-2 hover:bg-[#34495e] rounded-full">
               <User className="h-5 w-5 text-white" />
-            </button>
+            </button> */}
             <button 
               className="md:hidden p-2 hover:bg-[#34495e] rounded-full"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}

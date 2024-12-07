@@ -17,7 +17,7 @@ export default function Component() {
       {/* Main Content */}
       <main className="container mx-auto px-4 py-8 md:py-12">
         <div className="grid md:grid-cols-2 gap-8 items-center">
-          <div className="space-y-6">
+          <div className="space-y-6 order-2 md:order-1">
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black">라오브라더스</h1>
 
             {/* Global Brothers Vision section remains unchanged */}
@@ -29,6 +29,17 @@ export default function Component() {
                 <p className="text-sm md:text-base">동남아시아 소수민족 청소년, 여성, 소외계층, 그리고 비인기 스포츠 종목 선수들에게 다양한 경험의 기회를 제공하여 이들이 사회적으로 가치 있는 존재로 성장할 수 있도록 돕습니다.</p>
                 <p className="text-sm md:text-base">이를 바탕으로 세계 어디서든 다양성을 존중하며, 배려와 매너를 갖춘 글로벌 인재로 자리 잡는 것을 목표로 합니다.</p>
               </div>
+            </div>
+
+            {/* Group Image for Mobile */}
+            <div className="block md:hidden relative h-[300px] rounded-lg overflow-hidden mt-8">
+              <Image
+                src="/laos_group.jpeg"
+                alt="라오브라더스 메인"
+                fill
+                className="object-cover"
+                priority
+              />
             </div>
 
             {/* Main Purpose Business section remains unchanged */}
@@ -50,7 +61,8 @@ export default function Component() {
             </div>
           </div>
 
-          <div className="relative h-[300px] md:h-[600px] rounded-lg overflow-hidden mt-8 md:mt-0">
+          {/* Group Image for Desktop */}
+          <div className="hidden md:block relative h-[600px] rounded-lg overflow-hidden mt-8 md:mt-0">
             <Image
               src="/laos_group.jpeg"
               alt="라오브라더스 메인"
