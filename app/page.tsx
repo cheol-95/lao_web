@@ -103,7 +103,7 @@ export default function Component () {
 						<div className="text-center space-y-4">
 							<h2 className="text-3xl font-bold">비전</h2>
 							<div className="w-12 h-1 bg-gray-800 mx-auto"></div>
-							<p className="text-lg">라오브라더스 오순절 성령운동을 전세계에 펼칩니다.</p>
+							{/* <p className="text-lg">라오브라더스 오순절 성령운동을 전세계에 펼칩니다.</p> */}
 						</div>
 
 						<AnimatedSection
